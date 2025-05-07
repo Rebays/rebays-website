@@ -462,7 +462,7 @@ export default function Home() {
                 <div className="inline-flex items-center rounded-full border border-teal-500/20 bg-teal-500/10 px-3 py-1 text-sm text-teal-400 backdrop-blur-sm">
                   Our Team
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-5xl">Meet the Experts</h2>
+                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-5xl">Meet the Team</h2>
                 <p className="max-w-[900px] text-slate-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Our team of skilled developers and tech specialists are ready to tackle your most challenging
                   projects.
