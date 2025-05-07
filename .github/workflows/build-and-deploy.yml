@@ -24,5 +24,5 @@ jobs:
           role-to-assume: arn:aws:iam::824246083439:role/Rebays-Website-S3-Deploy-Role
           aws-region: ap-southeast-2
 
-      - name: List S3 Bucket Contents
-        run: aws s3 ls s3://rebays-website
+      - name: Deploy to S3
+        run: aws s3 sync ./out s3://rebays-website --delete
