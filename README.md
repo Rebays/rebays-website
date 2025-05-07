@@ -1,17 +1,17 @@
-The Official Rebays [website](https://nextjs.org).
+The Official Rebays [website](https://d9d8156a660qw.cloudfront.net).
 
-## Dev Workflow
+### Dev Workflow
 
-1. Pull main
+1. Pull `main`
 2. Branch out
 3. Push branch to remote
 4. Open PR
-5. Merge into main
+5. Merge into `main`
 
-## Github Actions
+### Github Actions
 
-1. build-and-deploy runs on merges into main.
+* build-and-deploy runs on merges into `main`.
 
-## Pipeline
+### Pipeline
 
 ![Alt text for the image](readme-assets/arch.png)
