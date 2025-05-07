@@ -497,7 +497,7 @@ export default function Home() {
                     <div className="rounded-full bg-teal-500/10 p-1.5">
                       <Icons.Globe className="h-4 w-4 text-teal-400" />
                     </div>
-                    <span className="text-slate-300">www.rebays.com</span>
+                    <span className="text-slate-300">www.rebays.com.sb</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="rounded-full bg-teal-500/10 p-1.5">
