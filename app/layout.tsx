@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Rebays - We think tech, so you can think business",
+  title: "Rebays",
   description:
     "Rebays delivers innovative software solutions and seamless system integrations to power your business forward.",
 }
