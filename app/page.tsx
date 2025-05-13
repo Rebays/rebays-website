@@ -1,7 +1,4 @@
-import Image from "next/image"
 import Header from "@/components/Header";
-import Button from "@/components/ui/Button";
-import Icons from "@/components/ui/Icon";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
