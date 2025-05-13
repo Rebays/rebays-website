@@ -25,8 +25,8 @@ function Hero() {
                           Rebays offers innovative software solutions and seamless system integrations designed to effectively advance your business.
                           </p>
                         </div>
-                        <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                          <Button className="relative overflow-hidden rounded-full bg-gradient-to-r from-teal-500 to-emerald-600 text-white hover:from-teal-600 hover:to-emerald-700 shadow-lg shadow-teal-900/20">
+                        <div className="flex flex-col gap-2 min-[400px]:flex-row border ">
+                          <Button  className="relative overflow-hidden rounded-full bg-gradient-to-r from-teal-500 to-emerald-600 text-white hover:from-teal-600 hover:to-emerald-700 shadow-lg shadow-teal-900/20">
                             Get in Touch
                           </Button>
                           <Button
