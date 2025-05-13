@@ -22,7 +22,7 @@ function Hero() {
                             </span>
                           </h1>
                           <p className="max-w-[600px] text-slate-400 md:text-xl">
-                          Rebays offers innovative software solutions and seamless system integrations designed to effectively advance your business.
+                          Rebays  innovative software solutions and seamless system integrations designed to effectively advance your business.
                           </p>
                         </div>
                         <div className="flex flex-col gap-2 min-[400px]:flex-row border ">
