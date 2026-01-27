@@ -1,11 +1,12 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: { clientX: number; clientY: number; }) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -18,10 +19,10 @@ export default function Home() {
       
       {/* GLOBAL BACKGROUNDS & LIGHTING (Fixed so they stay put) */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <img 
-          src="/code-pc2.jpg" 
-          alt=""
-          className="h-full w-full object-cover opacity-10 grayscale"
+        
+        <Image
+        src="code-pc2.jpg"
+        alt="bg-image"
         />
         <div 
           className="absolute inset-0 transition-opacity duration-500"
@@ -91,7 +92,7 @@ export default function Home() {
               { title: "Pacific Edge", desc: "Tailored tech stacks optimized for regional connectivity and scale.", icon: "03" }
             ].map((s, i) => (
               <div key={i} className="group p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all hover:-translate-y-2">
-                <span className="font-mono text-teal-500 text-xs mb-4 block tracking-widest">{s.icon} //</span>
+                <span className="font-mono text-teal-500 text-xs mb-4 block tracking-widest">{s.icon} {'//'}</span>
                 <h3 className="text-2xl font-bold text-white mb-4">{s.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed font-light">{s.desc}</p>
               </div>
