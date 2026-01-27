@@ -5,94 +5,103 @@ export default function Home() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e: { clientX: unknown; clientY: unknown; }) => {
-      setMousePos({ x: e.clientX as number, y: e.clientY as number });
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
-    <div className="relative h-screen w-full bg-[#02040a] text-slate-300 overflow-hidden font-sans">
+    // THE SNAP CONTAINER: Locks the scroll to full screen sections
+    <div className="h-screen w-full overflow-y-auto overflow-x-hidden snap-y snap-mandatory scroll-smooth bg-[#02040a]">
       
-      {/* 0. BASE BACKGROUND IMAGE LAYER */}
-      <div className="absolute inset-0 z-0">
+      {/* GLOBAL BACKGROUNDS & LIGHTING (Fixed so they stay put) */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <img 
           src="/code-pc2.jpg" 
-          alt="Network Background"
-          className="h-full w-full object-cover opacity-20 grayscale transition-opacity duration-1000"
+          alt=""
+          className="h-full w-full object-cover opacity-10 grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#02040a]/40 to-[#02040a]" />
+        <div 
+          className="absolute inset-0 transition-opacity duration-500"
+          style={{
+            background: `radial-gradient(800px at ${mousePos.x}px ${mousePos.y}px, rgba(20, 184, 166, 0.08), transparent 80%)`
+          }}
+        />
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:6rem_6rem]" />
       </div>
 
-      {/* 1. INTERACTIVE LIGHTING LAYER */}
-      <div 
-        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-500"
-        style={{
-          background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(20, 184, 166, 0.12), transparent 80%)`
-        }}
-      />
-
-      {/* 2. MINIMAL NAVIGATION */}
-      <nav className="absolute top-0 w-full z-50 flex justify-between items-center px-10 py-8">
+      {/* NAVIGATION (Fixed at top) */}
+      <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-10 py-8">
         <div className="text-white font-bold tracking-tighter text-xl">
           REBAYS<span className="text-teal-500">.</span>
         </div>
-        <div className="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.3em] font-medium">
-          <a href="#" className="hover:text-teal-400 transition-colors">Services</a>
+        <div className="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.3em] font-medium text-slate-400">
+          <button onClick={() => document.getElementById('services')?.scrollIntoView()} className="hover:text-teal-400 transition-colors">Services</button>
           <a href="#" className="hover:text-teal-400 transition-colors">About</a>
           <a href="#" className="hover:text-teal-400 transition-colors">Contact</a>
         </div>
       </nav>
 
-      {/* 3. CORE INTERFACE */}
-      <main className="relative z-20 h-full flex flex-col items-center justify-center px-6">
-        
-        {/* Subtle Tagline */}
+      {/* SECTION 1: HERO */}
+      <section className="relative h-screen w-full snap-start flex flex-col items-center justify-center z-10 px-6">
         <div className="mb-6 overflow-hidden">
-          <span className="block text-teal-500 font-mono text-xs tracking-[0.4em] uppercase animate-reveal">
+          <span className="block text-teal-500 font-mono text-xs tracking-[0.4em] uppercase">
             Next-Gen Digital Architecture
           </span>
         </div>
 
-        {/* Cinematic Branding */}
-        <div className="relative group">
-          <div className="absolute -inset-8 bg-teal-500/10 blur-[100px] rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
-          <h1 className="relative text-8xl md:text-[12rem] font-black tracking-tighter text-white leading-none">
+        <div className="relative group text-center">
+          <div className="absolute -inset-8 bg-teal-500/10 blur-[100px] rounded-full opacity-30" />
+          <h1 className="relative text-7xl md:text-[10rem] font-black tracking-tighter text-white leading-none">
             REBAYS<span className="text-teal-500">.</span>
           </h1>
         </div>
 
-        {/* Minimal Sub-headline */}
         <p className="mt-8 max-w-lg text-center text-slate-400 text-lg md:text-xl font-light leading-relaxed">
-          Engineering scalable software solutions for the 
+          Building cool, functional, scalable products for the
           <span className="text-white"> modern Pacific enterprise.</span>
         </p>
 
-        {/* CTA Section */}
-        <div className="mt-12 flex flex-col items-center gap-6">
+        <div className="mt-12 flex flex-col items-center gap-12">
           <button className="group relative px-10 py-4 border border-white/10 bg-white/5 backdrop-blur-sm text-white font-medium rounded-full overflow-hidden transition-all hover:border-teal-500/50">
-            <span className="relative z-10 flex items-center gap-2 tracking-widest text-xs">
-              INITIATE PARTNERSHIP
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:translate-x-1 transition-transform">
-                <path d="M1 11L11 1M11 1H1M11 1V11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="relative z-10 tracking-widest text-xs">INITIATE PARTNERSHIP</span>
           </button>
           
-          <div className="flex gap-4 items-center opacity-20 hover:opacity-50 transition-opacity cursor-default">
-             <div className="h-[1px] w-8 bg-slate-500"></div>
-             <span className="text-[10px] font-mono tracking-widest uppercase">Scroll to Explore</span>
-             <div className="h-[1px] w-8 bg-slate-500"></div>
+          <div className="animate-bounce flex flex-col items-center gap-2 opacity-30">
+             <span className="text-[9px] font-mono tracking-widest uppercase">Scroll</span>
+             <div className="w-[1px] h-12 bg-gradient-to-b from-teal-500 to-transparent"></div>
           </div>
         </div>
-      </main>
+      </section>
 
-      {/* 4. BACKGROUND GRID (Moved to bottom of stack) */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:6rem_6rem]" />
-      </div>
+      {/* SECTION 2: SERVICES */}
+      <section id="services" className="relative h-screen w-full snap-start flex flex-col items-center justify-center z-10 px-6 bg-[#02040a]/80 backdrop-blur-3xl">
+        <div className="max-w-6xl w-full">
+          <div className="flex items-baseline gap-4 mb-12">
+            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">Capabilities<span className="text-teal-500">.</span></h2>
+            <div className="h-[1px] flex-grow bg-white/10"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: "Cloud Scale", desc: "Enterprise-grade infrastructure designed for the high-bandwidth future.", icon: "01" },
+              { title: "Product Dev", desc: "Turning complex business logic into intuitive, functional digital products.", icon: "02" },
+              { title: "Pacific Edge", desc: "Tailored tech stacks optimized for regional connectivity and scale.", icon: "03" }
+            ].map((s, i) => (
+              <div key={i} className="group p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all hover:-translate-y-2">
+                <span className="font-mono text-teal-500 text-xs mb-4 block tracking-widest">{s.icon} //</span>
+                <h3 className="text-2xl font-bold text-white mb-4">{s.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed font-light">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Decorative background element for Services */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-teal-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+      </section>
 
     </div>
   );
