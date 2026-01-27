@@ -21,7 +21,7 @@ export default function Home() {
       <div className="fixed inset-0 z-0 pointer-events-none">
         
         <Image
-        src="code-pc2.jpg"
+        src="/code-pc2.jpg"
         alt="bg-image"
         />
         <div 
