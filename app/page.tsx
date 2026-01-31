@@ -65,7 +65,7 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:React.FormEvent) => {
   e.preventDefault();
   // Add fetch to your endpoint here
   alert("Message sent!"); // placeholder
