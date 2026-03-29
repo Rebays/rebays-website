@@ -30,28 +30,28 @@ export default function Home() {
       title: "Pacific Cloud Migration",
       desc: "Migrated legacy systems to scalable cloud infra for a major regional telco — 40% cost reduction, 99.99% uptime.",
       tags: ["Cloud", "AWS", "Migration"],
-      image: "/projects/cloud-mig.jpg", // replace with your actual paths
+      image: "https://s3-alpha.figma.com/hub/file/5715816595/4070cf19-3703-441e-9b12-a666b12ec8d6-cover.png", // replace with your actual paths
       link: "#", // or real case study URL
     },
     {
       title: "Enterprise Logistics Platform",
       desc: "Built real-time tracking & supply chain dashboard tailored for island-hopping operations.",
       tags: ["Next.js", "Realtime", "Logistics"],
-      image: "/projects/logistics.jpg",
+      image: "https://www.tracelink.com/sites/default/files/2021-07/Blog%2015%20Image%20A.png",
       link: "#",
     },
     {
       title: "Secure FinTech Gateway",
       desc: "Zero-trust payment processing API with regional compliance — handles 10k+ TPS.",
       tags: ["Security", "FinTech", "API"],
-      image: "/projects/fintech.jpg",
+      image: "https://pixelplex.io/wp-content/uploads/2023/03/how-to-implement-zero-trust-in-5-steps-1.jpg",
       link: "#",
     },
     {
       title: "Secure FinTech Gateway",
       desc: "Zero-trust payment processing API with regional compliance — handles 10k+ TPS.",
       tags: ["Security", "FinTech", "API"],
-      image: "/projects/fintech.jpg",
+      image: "https://i0.wp.com/lab.wallarm.com/wp-content/uploads/2023/10/A-Deep-Dive-into-ZTA-min.jpg?w=770&ssl=1",
       link: "#",
     },
     // Add 1–3 more as needed (keep 3–6 total for performance)
@@ -65,11 +65,11 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handleSubmit = async (e:React.FormEvent) => {
-  e.preventDefault();
-  // Add fetch to your endpoint here
-  alert("Message sent!"); // placeholder
-  setIsContactOpen(false);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Add fetch to your endpoint here
+    alert("Message sent!"); // placeholder
+    setIsContactOpen(false);
   };
 
 
@@ -102,14 +102,14 @@ export default function Home() {
           REBAYS<span className="text-teal-500">.</span>
         </div>
         <div className="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.3em] font-medium text-slate-400">
-          <a href="/services" className="hover:text-teal-400 transition-colors">WHAT YOU GET</a>
+          <a href="/services" className="hover:text-teal-400 transition-colors">Our Services</a>
           <a
             href="#contact"
-            className="group inline-flex items-center justify-center w-14 h-14 rounded-full bg-teal-500/20 backdrop-blur-lg border border-teal-400/30 text-teal-300 shadow-lg shadow-teal-500/20 transition-all duration-300 hover:bg-teal-500/40 hover:scale-110 hover:shadow-xl hover:shadow-teal-500/40 active:scale-95"
+            className="group inline-flex items-center justify-center w-9 h-9 rounded-full bg-teal-500/20 backdrop-blur-lg border border-teal-400/30 text-teal-300 shadow-md shadow-teal-500/20 transition-all duration-300 hover:bg-teal-500/40 hover:scale-110 hover:shadow-lg hover:shadow-teal-500/40 active:scale-95"
             aria-label="Let's talk"
           >
             <svg
-              className="w-7 h-7 transition-transform duration-300 group-hover:rotate-6"
+              className="w-4 h-4 transition-transform duration-300 group-hover:rotate-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -404,61 +404,63 @@ export default function Home() {
       </section>
 
 
-      <footer className="relative bg-gradient-to-b from-[#02040a] to-black border-t border-teal-500/10 pt-12 pb-10 px-6 md:px-12 lg:px-24 z-10">
-  {/* Optional subtle mouse glow – very light */}
-  <div
-    className="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-40"
-    style={{
-      background: `radial-gradient(1000px at ${mousePos?.x || 0}px ${mousePos?.y || 0}px, rgba(20, 184, 166, 0.03), transparent 80%)`,
-    }}
-  />
+      <section className="relative w-full snap-start z-10">
+        <footer className="relative bg-gradient-to-b from-[#02040a] to-black border-t border-teal-500/10 pt-12 pb-10 px-6 md:px-12 lg:px-24">
+          {/* Optional subtle mouse glow – very light */}
+          <div
+            className="absolute inset-0 pointer-events-none transition-opacity duration-500 opacity-40"
+            style={{
+              background: `radial-gradient(1000px at ${mousePos?.x || 0}px ${mousePos?.y || 0}px, rgba(20, 184, 166, 0.03), transparent 80%)`,
+            }}
+          />
 
-  <div className="relative max-w-5xl mx-auto text-center md:text-left z-10">
-    {/* Branding */}
-    <div className="text-2xl md:text-3xl font-black tracking-tighter mb-6">
-      REBAYS<span className="text-teal-500">.</span>
-    </div>
+          <div className="relative max-w-5xl mx-auto text-center md:text-left z-10">
+            {/* Branding */}
+            <div className="text-2xl md:text-3xl font-black tracking-tighter mb-6">
+              REBAYS<span className="text-teal-500">.</span>
+            </div>
 
-    {/* Contact details only */}
-    <div className="space-y-4 text-slate-300 text-base md:text-lg">
-      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 justify-center md:justify-start">
-        <a 
-          href="mailto:hello@rebays.com" 
-          className="inline-flex items-center gap-2 hover:text-teal-400 transition-colors"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          hello@rebays.com
-        </a>
+            {/* Contact details only */}
+            <div className="space-y-4 text-slate-300 text-base md:text-lg">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 justify-center md:justify-start">
+                <a
+                  href="mailto:hello@rebays.com"
+                  className="inline-flex items-center gap-2 hover:text-teal-400 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  hello@rebays.com
+                </a>
 
-        {/* Optional phone – uncomment if you have one */}
-        {/* <a href="tel:+6771234567" className="inline-flex items-center gap-2 hover:text-teal-400 transition-colors">
+                {/* Optional phone – uncomment if you have one */}
+                {/* <a href="tel:+6771234567" className="inline-flex items-center gap-2 hover:text-teal-400 transition-colors">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
           +677 123 4567
         </a> */}
 
-        {/* Message / Contact form trigger */}
-        <button
-          onClick={() => setIsContactOpen?.(true)} // connects to your modal state
-          className="inline-flex items-center gap-2 hover:text-teal-400 transition-colors md:ml-6"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-          </svg>
-          Message us
-        </button>
-      </div>
-    </div>
+                {/* Message / Contact form trigger */}
+                <button
+                  onClick={() => setIsContactOpen?.(true)} // connects to your modal state
+                  className="inline-flex items-center gap-2 hover:text-teal-400 transition-colors md:ml-6"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  </svg>
+                  Message us
+                </button>
+              </div>
+            </div>
 
-    {/* Copyright */}
-    <div className="mt-8 text-slate-500 text-sm">
-      © {new Date().getFullYear()} Rebays. All rights reserved.
-    </div>
-  </div>
-</footer>
+            {/* Copyright */}
+            <div className="mt-8 text-slate-500 text-sm">
+              © {new Date().getFullYear()} Rebays. All rights reserved.
+            </div>
+          </div>
+        </footer>
+      </section>
 
 
       {isContactOpen && (
